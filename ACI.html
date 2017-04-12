@@ -1,0 +1,128 @@
+
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Send Message</title>
+<style type="text/css">
+hr{
+width:50%;
+text-align:left;
+margin-left:0px;}
+#update {
+display:none;
+width:350px;
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 18px;
+	margin-left:5px;
+	margin-top:5px;
+	box-shadow:5px 5px 5px #888888;
+	border:2px solid #888888;
+}
+
+
+div.update1{
+position:relative;
+width:100%;}
+</style>
+</head>
+<body>
+
+    <form method="POST" action="http://none.php">
+            <pre>Title       : <input type="text" name="title"></pre>
+            <pre>Message     : <input type="text" name="msg"></pre>
+            <pre>Type        : <input type="text" disabled="" name="type" value="none"></pre>
+            <input type="submit" value="Notification">
+    </form>
+	 <hr>
+
+    <form method="POST" action="http://tcard.php">
+            <pre>Title       : <input type="text" name="title"></pre>
+            <pre>Message     : <input type="text" name="msg"></pre>
+            <pre>Type        : <input type="text" disabled="" name="type" value="tcard"></pre>
+
+            <pre>Count2      : <input type="text" name="tccount"></pre>
+            <pre>Title       : <input type="text" name="ttitle"></pre>
+            <pre>Description : <input type="text" name="tdescrp"></pre>
+            <pre>Link2       : <input type="text" name="link"></pre>
+
+            <input type="submit" value="TCard">
+    </form>
+<hr>	
+<div class="update1" >
+    <form method="POST" id="frm1" action="http://update.php">
+            <pre>Title       : <input type="text" name="title"></pre>
+            <pre>Message     : <input type="text" name="msg"></pre>
+            <pre>Type        : <input type="text" disabled="" name="type" value="update"></pre>
+
+            <pre>Count2      : <input type="text" name="ucount"></pre>
+            <pre>Update      : <input type="text" name="updatemsg"></pre>
+            <input type="submit" value="Update">
+			<input type="button" onclick="recentupdate()" value="Preview">
+    </form>
+<div id="update">
+<h1> Recent Updates</h1>
+<ul id="uu1">
+<li id="u1">Technopedia is Live!!</li>
+<li id="u2">Go to our official Discussion forum for Technothlon question paper.</li>
+</ul>
+<script>
+function recentupdate() {
+	var x = document.getElementById("frm1");
+	var y = x.elements[3].value;
+	if(y==3){
+	var node = document.createElement("li");                 // Create a <li> node
+var textnode = document.createTextNode(x.elements[4].value);         // Create a text node
+node.appendChild(textnode);                              // Append the text to <li>
+document.getElementById("uu1").appendChild(node);
+	}
+	
+	else if(y==2) document.getElementById("u2").innerHTML = x.elements[4].value;
+	else if(y==1) document.getElementById("u1").innerHTML = x.elements[4].value;
+	document.getElementById("update").style.display = "inherit";
+	}
+</script>
+</div>
+</div>
+
+<hr>
+
+    <form method="POST" action="http://coup.php">
+            <pre>Title       : <input type="text" name="title"></pre>
+            <pre>Message     : <input type="text" name="msg"></pre>
+            <pre>Type        : <input type="text" disabled="" name="type" value="coup"></pre>
+
+
+            <pre>ImageUrl    : <input type="text" name="imageurl"></pre>
+			<pre>ImageText   : <input type="text" name="imagetext"></pre>
+            <pre>Id          : <input type="text" name="id"></pre>
+            <input type="submit" value="Coup">
+    </form>
+    
+	<hr>
+
+	<form method="POST" action="http://link.php">
+            <pre>Title       : <input type="text" name="title"></pre>
+            <pre>Message     : <input type="text" name="msg"></pre>
+            <pre>Type        : <input type="text" disabled="" name="type" value="link"></pre>
+
+            <pre>Link2       : <input type="text" name="link"></pre>
+            <input type="submit" value="Link">
+    </form>
+
+    <hr>
+
+    <form method="POST" action="http://icard.php">
+            <pre>Title       : <input type="text" name="title"></pre>
+            <pre>Message     : <input type="text" name="msg"></pre>
+            <pre>Type        : <input type="text" disabled="" name="type" value="icard"></pre>
+
+            <pre>Count2      : <input type="text" name="iccount"></pre>
+            <pre>Title       : <input type="text" name="ictitle"></pre>
+            <pre>Description : <input type="text" name="icdescrp"></pre>
+            <pre>ImageUrl    : <input type="text" name="imageurl"></pre>
+            <pre>ImageText   : <input type="text" name="imagetext"></pre>
+            <input type="submit" value="ICard">
+    </form>
+    <hr>
+	
+</body></html>
